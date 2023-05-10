@@ -3,9 +3,11 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 creds = service_account.Credentials.from_service_account_file(
+    //json key could be downloaded from gcloud service account key
     'jsonkey.json',
     scopes=['https://www.googleapis.com/auth/spreadsheets.readonly'])
 
+//Sample Sheet containing some cricket scores
 sheet_id='1RepNEonUEKlcCRk4LcJPOq9O1ZVQn20JNOUhffiLebw'
 sheet_range = 'Sheet1'
 output = build('sheets', 'v4', credentials=creds)
@@ -17,8 +19,8 @@ values = result.get('values', [])
 # MySQL database configuration
 config = {
     'user': 'root',
-    'host': '34.131.6.232',
-    'database': 'Dbsheets'
+    'host': 'IP Provided by gcloud',
+    'database': 'Dbase'
 }
 
 data =values
